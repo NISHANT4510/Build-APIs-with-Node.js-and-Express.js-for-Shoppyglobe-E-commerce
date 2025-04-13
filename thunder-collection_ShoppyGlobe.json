@@ -1,0 +1,138 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "ShoppyGlobe",
+  "dateExported": "2023-12-20T12:00:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "name": "Auth",
+      "items": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/api/auth/register",
+            "body": {
+              "type": "json",
+              "raw": {
+                "name": "Test User",
+                "email": "test@example.com",
+                "password": "123456"
+              }
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/api/auth/login",
+            "body": {
+              "type": "json",
+              "raw": {
+                "email": "test@example.com",
+                "password": "123456"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "items": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/api/products"
+          }
+        },
+        {
+          "name": "Search Products",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/api/products/search?q=laptop"
+          }
+        },
+        {
+          "name": "Get Single Product",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/api/products/{productId}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "items": [
+        {
+          "name": "Get Cart",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/api/cart",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Add to Cart",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/api/cart",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "raw": {
+                "productId": "{productId}",
+                "quantity": 1
+              }
+            }
+          }
+        },
+        {
+          "name": "Update Cart Item",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:3000/api/cart/{productId}",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "raw": {
+                "quantity": 2
+              }
+            }
+          }
+        },
+        {
+          "name": "Remove from Cart",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:3000/api/cart/{productId}",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
